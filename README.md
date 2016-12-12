@@ -4,6 +4,8 @@ Open `.fla` files in Adobe Flash.
 
 ## Usage
 
+Install with `apm install atom-flash-open`.
+
 Right click on a `.fla` file in the `tree-view` that you want to open in Adobe Flash.
 
 ## Notes
