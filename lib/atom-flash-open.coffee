@@ -3,6 +3,14 @@ exec = require('child_process').exec
 path = require('path')
 module.exports =
     subscriptions: null
+    config: {
+      notify: {
+        title: 'Show notifications',
+        description: 'Enables notifications for when a file has been opened in Flash.',
+        type: 'boolean',
+        default: 'false'
+      }
+    }
     activate: ->
         @subscriptions = new CompositeDisposable
         @subscriptions.add atom.commands.add('atom-workspace', 'atom-flash-open:toggle': ((_this) ->
@@ -12,6 +20,7 @@ module.exports =
     deactivate: ->
         @subscriptions.dispose()
     opener: ->
+        notify = atom.config.get('atom-flash-open.notify');
         editor = atom.workspace.getActivePaneItem()
         listTree = document.querySelector('.tree-view')
         selected = listTree.querySelectorAll('.selected > .header > span, .selected > span')
@@ -23,9 +32,12 @@ module.exports =
             pathName = pieces.join(path.sep)
             extname = path.extname(pathName).trim()
             if extname == '.fla'
-                atom.notifications.addSuccess 'Opening ' + fileName + ' in Adobe Flash', { 'dismissable': true }
+                if notify
+                    atom.notifications.addSuccess 'Opening ' + fileName + ' in Adobe Flash', { 'dismissable': true }
                 exec '"C:\\Program Files (x86)\\Adobe\\Adobe Flash CS4\\Flash.exe" "' + pathName + '"'
             else
-                console.log 'Not a Flash file.'
+                if notify
+                    atom.notifications.addInfo 'Not a Flash file.', { 'dismissable': true }
         else
-            console.log 'Error, no/too many folders selected.'
+            if notify
+                atom.notifications.addWarning 'Error, no/too many folders selected.', { 'dismissable': true }
