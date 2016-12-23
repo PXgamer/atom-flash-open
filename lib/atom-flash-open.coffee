@@ -22,7 +22,7 @@ module.exports =
             description: 'Choose what version of Flash you\'re using.',
             type: 'string',
             default: 'CS4'
-            enum: ['CS5', 'CS4', 'CS3', 'CS2']
+            enum: ['CS6', 'CS5', 'CS4', 'CS3', 'CS2']
         }
     }
     activate: ->
