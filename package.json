@@ -1,7 +1,7 @@
 {
   "name": "atom-flash-open",
   "main": "./lib/atom-flash-open",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "Open .fla files in Adobe Flash.",
   "keywords": [
     "adobe",
