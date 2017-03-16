@@ -1,10 +1,10 @@
 {
   "context-menu": {
-    "atom-workspace": [
+    ".tree-view": [
       {
         "label": "Open in Adobe Flash",
         "command": "atom-flash-open:toggle"
       }
     ]
   }
-}
+}  
