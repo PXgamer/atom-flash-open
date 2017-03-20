@@ -9,14 +9,14 @@ module.exports =
           description: 'Enables notifications for when a file has been opened in Flash.',
           type: 'boolean',
           default: 'false'
-        },
+        } ,
         os_bit: {
             title: '32-bit or 64-bit',
             description: 'Choose whether you\'re running 32-bit or 64-bit Windows.',
             type: 'string',
             default: '64-bit'
             enum: ['64-bit', '32-bit']
-        },
+        } ,
         flash_version: {
             title: 'Adobe Flash Version',
             description: 'Choose what version of Flash you\'re using.',
@@ -38,17 +38,14 @@ module.exports =
         os_bit = atom.config.get('atom-flash-open.os_bit')
         flash_version = atom.config.get('atom-flash-open.flash_version')
         program_path = 'Program Files (x86)'
-        editor = atom.workspace.getActivePaneItem()
         listTree = document.querySelector('.tree-view')
         selected = listTree.querySelectorAll('.selected > .header > span, .selected > span')
         if selected.length == 1
             pieces = selected[0].dataset.path.split(path.sep)
             fileName = pieces[pieces.length - 1]
-            name = pieces[pieces.length - 1].replace('.', '-')
             pieces.splice pieces.length, 1
             pathName = pieces.join(path.sep)
-            extname = path.extname(pathName).trim()
-            if extname == '.fla'
+            if path.extname(pathName).trim() == '.fla'
                 if os_bit == '32-bit'
                     program_path = 'Program Files'
                 if notify
