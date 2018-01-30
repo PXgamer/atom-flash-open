@@ -1,7 +1,7 @@
 {
   "name": "atom-flash-open",
-  "main": "./lib/atom-flash-open",
-  "version": "0.0.12",
+  "main": "./src/atom-flash-open",
+  "version": "1.0.0",
   "description": "Open .fla files in Adobe Flash.",
   "keywords": [
     "adobe",
@@ -11,7 +11,7 @@
   "activationCommands": {
     "atom-workspace": "atom-flash-open:toggle"
   },
-  "repository": "https://github.com/PXgamer/atom-flash-open",
+  "repository": "https://github.com/pxgamer/atom-flash-open",
   "license": "MIT",
   "engines": {
     "atom": ">=1.0.0 <2.0.0"
