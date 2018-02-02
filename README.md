@@ -1,5 +1,7 @@
 # atom-flash-open
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/pxgamer/atom-flash-open.svg)](https://greenkeeper.io/)
+
 Open `.fla` files in Adobe Flash.
 
 ## Install
